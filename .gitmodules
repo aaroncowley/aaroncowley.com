@@ -1,0 +1,6 @@
+[submodule "docs/aaronBTFM"]
+	path = docs/aaronBTFM
+	url = https://github.com/aaroncowley/aaronBTFM
+[submodule "docs/AaronCowleyResume"]
+	path = docs/AaronCowleyResume
+	url = https://github.com/aaroncowley/AaronCowleyResume
