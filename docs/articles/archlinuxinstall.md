@@ -1,10 +1,4 @@
-{:title "Quick Install Arch Linux"
- :layout :post
- :tags  ["Guides/Instructions"]
- :toc true}
-
-
-
+# How to install Arch Linux
 ## Introduction
 
 [Arch linux](https://www.archlinux.org/) is probably the best Operating System out there for power users, programmers, and people who like to do things the hard way. [Gentoo](https://www.gentoo.org/get-started/about/) is another great DIY distro for those with a few hours - days to spare.  I like to have any given system up and running within an hour or less and Arch Linux, once mastered, shouldnt take anyone too long to install and configure.  Its install process compared to installers from other battle-tested distroburions, like Debian, is a lot more manual and therefore, more customizable.  A Linux install, regardless of the distro, follows the same basic steps.  With Arch you do these yourself and essentially build your own system from the ground up.  

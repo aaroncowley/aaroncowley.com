@@ -1,7 +1,6 @@
-site_name: My Docs
+site_name: Aaron Cowley
 nav: 
   - Home: index.md
-  - About: about.md
   - Resume: AaronCowleyResume/AaronCowleyResume.pdf
   - Articles:
     - "Aaron Cowley BTFM": aaronBTFM/aaronBTFM.md

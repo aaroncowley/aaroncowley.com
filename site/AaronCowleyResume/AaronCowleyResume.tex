@@ -1,0 +1,172 @@
+%! TeX program = lualatex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Twenty Seconds Resume/CV
+% LaTeX Template
+% Version 1.1 (8/1/17)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Carmine Spagnuolo (cspagnuolo@unisa.it) with major modifications by 
+% Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% The MIT License (see included LICENSE file)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[letterpaper]{twentysecondcv} % a4paper for A4
+
+%----------------------------------------------------------------------------------------
+%	 PERSONAL INFORMATION
+%----------------------------------------------------------------------------------------
+
+% If you don't need one or more of the below, just remove the content leaving the command, e.g. \cvnumberphone{}
+
+
+
+\cvname{Aaron Cowley} % Your name
+\cvjobtitle{Security Engineer} % Job title/career
+
+\cvdate{396 N 100 W Apt 8 Provo Utah} % Date of birth
+\cvaddress{aaron.d.cowley@outlook.com} % Short address/location, use \newline if more than 1 line is required
+\cvnumberphone{(916) 430-6668} % Phone number
+\cvsite{github.com/aaroncowley
+    linkedin.com/in/aaron-cowley-3a091b126} % Personal website
+
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	 Education
+%----------------------------------------------------------------------------------------
+
+\Education{M.S. Technology (Cybersecurity Emphasis) | Brigham Young University, Provo Utah | Aug 2021 \\ GPA:4.0
+\newline \newline B.S. Cybersecurity | Brigham Young University, Provo Utah | Aug 2019 \\ GPA:3.32} % To have no Education section, just remove all the text and leave \Education{}
+
+%----------------------------------------------------------------------------------------
+%	 SKILLS
+%----------------------------------------------------------------------------------------
+
+% Skill bar section, each skill must have a value between 0 an 6 (float)
+\skills{Languages : Python, C/C++, Golang, Javascript, C\#, SQL, Java
+\newline \newline  Defensive Cybersecurity : Splunk, Splunk Phantom, Elastic Stack, Zeek IDS, Snort
+\newline \newline  Penetration Testing : Tennable Nessus, Burp Suite, Kali Linux, Metasploit
+\newline \newline  Forensics : Volatility, Autopsy, FTK Imager, Malware Reverse Engineering
+\newline \newline  Systems Administration :  Amazon AWS, Azure, Git, Docker, Ansible }
+
+
+
+\ExtraCurricular{Bug Bounty Hunter on Hackerone \& BugCrowd 
+    \newline \newline BYU CCDC (Collegiate Cyber Defense Competition) Linux \& Web Team Lead
+                 \newline \newline BYU ITSEC Club Vice President 
+                 \newline \newline Deloitte CTF 2nd Place
+                 \newline \newline HackTheBox Rank of Hacker }
+
+%------------------------------------------------
+
+% Skill text section, each skill must have a value between 0 an 6
+
+
+%----------------------------------------------------------------------------------------
+
+\makeprofile % Print the sidebar
+
+%----------------------------------------------------------------------------------------
+%	 INTERESTS
+%----------------------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+%	 EDUCATION
+%----------------------------------------------------------------------------------------
+
+\section{Work Experience}
+
+\begin{twenty} % Environment for a list with descriptions
+	\twentyitem{Dec'19 - Now}{Graduate Cybersecurity Research Assistant}{BYU, Provo UT}{
+        \cdot Thesis on deploying vulnerable blockchains as "vulnerability as a service" Cybersecurity teaching tools \\
+        \cdot Reseaching automated red team scripts for defensive cybersecurity training \\
+        \cdot Created and Manages Academic Research Lab's SOC using Splunk, Zeek IDS, Splunk Phantom and custom Python integrations\\
+        \cdot Teaches and prepares coursework for defensive and offensive Cybersecurity classes \\
+	}
+    \twentyitem{May'19 - Now}{ICS Security Engineer Intern}{Idaho National Laboratory, Idaho Falls ID}{
+	    \cdot Assessed security of US DOE Industrial Control Systems and developed automated remediations in Python \\
+	    \cdot Deployed SIEM tools and wrote custom Python integrations for ICS devices \\
+	    \cdot Produced automated threat feed integration for SCADA system defense \\
+        \cdot Developed novel threat model and remediation for critical ICS Vulnerability that was presented on Capitol Hill to demonstrate INL’s cyber response capabilities \\
+        \cdot Used Python to automate threat remediation and reporting software \\ 
+	}
+    \twentyitem{Sep'18 - Sep'19 }{Cybersecurity Research Assistant}{BYU, Provo UT}{
+        \cdot Web Applications \& Linux lead for CCDC (Collegiate Cyber Defense Competition) team \\
+        \cdot BYU Student Red Team Member \\
+        \cdot TA and Mentor for Cybersecurity courses \\
+        \cdot Developed Penetration Testing coursework for Cybersecurity major as an undergrad \\
+    }	
+    \twentyitem{Jan'17 - Sep'18 }{Student Full-Stack Developer}{BYU, Provo UT}{
+        \cdot Managed 14 of BYU Humanities’ multi-platform websites\\
+        \cdot Reduced code complexity and decreased load time by 10\% through self-written upgrades\\
+        \cdot Discovered and patched SQLi and XSS vulnerabilities in live University websites \\
+    }
+	%\twentyitem{<dates>}{<title>}{<location>}{<description>}
+\end{twenty}
+
+
+%----------------------------------------------------------------------------------------
+%	 PUBLICATIONS
+%----------------------------------------------------------------------------------------
+
+\section{Publications}
+
+\begin{twenty} % Environment for a short list with no descriptions
+    \twentyitem{Jan 2020}{Dynamic Intrusion Deception in a Cloud Environment}{
+        Chia-Chi Teng, Aaron Cowley, Russel Havens
+    }{}
+	%\twentyitemshort{<dates>}{<title/description>}
+\end{twenty}
+
+
+%----------------------------------------------------------------------------------------
+%	 OTHER INFORMATION
+%----------------------------------------------------------------------------------------
+
+
+\section{Projects \& Contributions}
+
+\begin{twenty}
+    \twentyitem{June 2019}{Open source contribution to Structured Threat Intelligence Graph, a gui for creating and visualizing STIXv2 threat intelligence objects with a graph database}{
+        \textit{github.com/idaholab/STIG}
+    }{}
+    
+\end{twenty}
+
+%----------------------------------------------------------------------------------------
+%	 SECOND PAGE EXAMPLE
+%----------------------------------------------------------------------------------------
+
+%\newpage % Start a new page
+
+%\makeprofile % Print the sidebar
+
+%\section{Other information}
+
+%\subsection{Review}
+
+%Alice approaches Wonderland as an anthropologist, but maintains a strong sense of noblesse oblige that comes with her class status. She has confidence in her social position, education, and the Victorian virtue of good manners. Alice has a feeling of entitlement, particularly when comparing herself to Mabel, whom she declares has a ``poky little house," and no toys. Additionally, she flaunts her limited information base with anyone who will listen and becomes increasingly obsessed with the importance of good manners as she deals with the rude creatures of Wonderland. Alice maintains a superior attitude and behaves with solicitous indulgence toward those she believes are less privileged.
+
+%\section{Other information}
+
+%\subsection{Review}
+
+%Alice approaches Wonderland as an anthropologist, but maintains a strong sense of noblesse oblige that comes with her class status. She has confidence in her social position, education, and the Victorian virtue of good manners. Alice has a feeling of entitlement, particularly when comparing herself to Mabel, whom she declares has a ``poky little house," and no toys. Additionally, she flaunts her limited information base with anyone who will listen and becomes increasingly obsessed with the importance of good manners as she deals with the rude creatures of Wonderland. Alice maintains a superior attitude and behaves with solicitous indulgence toward those she believes are less privileged.
+
+%----------------------------------------------------------------------------------------
+
+\end{document} 

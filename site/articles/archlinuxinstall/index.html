@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Arch Linux Install Guide - Aaron Cowley</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/darcula.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">Aaron Cowley</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li >
+                                <a href="../../AaronCowleyResume/AaronCowleyResume.pdf">Resume</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Articles <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../aaronBTFM/aaronBTFM/">Aaron Cowley BTFM</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">Arch Linux Install Guide</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../../aaronBTFM/aaronBTFM/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="disabled">
+                                <a rel="prev" >
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#how-to-install-arch-linux">How to install Arch Linux</a></li>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#writing-to-a-usb">Writing to a USB</a></li>
+            <li><a href="#boot-up-the-installer">Boot up the Installer</a></li>
+            <li><a href="#keymaps">Keymaps</a></li>
+            <li><a href="#partitioning">Partitioning</a></li>
+            <li><a href="#install-arch">Install Arch</a></li>
+            <li><a href="#base-system-configuration">Base System Configuration</a></li>
+            <li><a href="#system-administration">System Administration</a></li>
+            <li><a href="#finishing-up">Finishing Up</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="how-to-install-arch-linux">How to install Arch Linux</h1>
+<h2 id="introduction">Introduction</h2>
+<p><a href="https://www.archlinux.org/">Arch linux</a> is probably the best Operating System out there for power users, programmers, and people who like to do things the hard way. <a href="https://www.gentoo.org/get-started/about/">Gentoo</a> is another great DIY distro for those with a few hours - days to spare.  I like to have any given system up and running within an hour or less and Arch Linux, once mastered, shouldnt take anyone too long to install and configure.  Its install process compared to installers from other battle-tested distroburions, like Debian, is a lot more manual and therefore, more customizable.  A Linux install, regardless of the distro, follows the same basic steps.  With Arch you do these yourself and essentially build your own system from the ground up.  </p>
+<p>This guide is for those of us who love Arch Linux and want a trimmed installation guide with just the commands needed to get a minimal install on a modern x86_64 EFI system up and running speedily.  The goal of this guide is to be less wordy than most Arch Linux install guides so that one can quickly go from command to command without much searching.  If you have questions consult the official <a href="https://wiki.archlinux.org/index.php/Installation_guide">Arch Linux install guide</a>.</p>
+<h2 id="writing-to-a-usb">Writing to a USB</h2>
+<p>Insert the USB to be used for writing.  Run:</p>
+<pre><code class="bash">lsblk
+</code></pre>
+
+<p>to find your USB drive's letter.</p>
+<p>Run the command below from a Linux terminal, of course replacign the "X" with the letter of your USB drive</p>
+<pre><code class="bash">sudo dd if=&quot;put your arch iso here&quot; of=/dev/sdX bs=4M status=progress &amp;&amp; sync
+</code></pre>
+
+<h2 id="boot-up-the-installer">Boot up the Installer</h2>
+<p>You should be greeted by the "root@archiso" prompt.</p>
+<p>Run:</p>
+<pre><code class="bash">efivar -l
+</code></pre>
+
+<p>If you are presented with an alarmingly large wall of text that means you booted into EFI mode, congrats.</p>
+<p>If you arent connected to ethernet, you should connect to ethernet.  </p>
+<p>If you are stubborn and want to setup wireless this second refer to <a href="https://wiki.archlinux.org/index.php/Wireless_network_configuration">here</a>
+Then run:</p>
+<pre><code class="bash">ping archlinux.org
+</code></pre>
+
+<p>If you receive some responses then you are ready to proceed to the next step.  If not consult <a href="https://wiki.archlinux.org/index.php/Network_configuration#Device_driver">here</a></p>
+<h2 id="keymaps">Keymaps</h2>
+<p>If you do not use the standard English Qwerty layout run:</p>
+<pre><code class="bash">loadkeys &lt;your 2 letter layout here&gt;
+</code></pre>
+
+<p>Else, continue to the next section</p>
+<h2 id="partitioning">Partitioning</h2>
+<p>I find parted to be the easiest tool for the job.  I typically stick with the simple boot, root, swap partition architecure.  Your swap space should generally be the same as your RAM if you want to be able to hibernate a computer under a full workload.  </p>
+<p>List the current Drives.  You don't want to install Arch onto your USB do you ;)</p>
+<pre><code class="bash">lsblk
+</code></pre>
+
+<p>Your harddrive/ssd should be /dev/sda but if not remember its letter.  /dev/sda will be used for the remainder of the guide.</p>
+<p>Open parted with reference to your drive:</p>
+<pre><code class="bash">parted /dev/sda
+</code></pre>
+
+<p>Run the print command within parted to find your disk's size.</p>
+<pre><code class="bash">(parted) print
+</code></pre>
+
+<p>Wipe your entire disk, and create a GPT table.</p>
+<pre><code class="bash">(parted) mklabel gpt
+</code></pre>
+
+<p>Create your partition table, replace size with the value of your total disk space - your RAM</p>
+<pre><code class="bash">(parted) mkpart ESP fat32 1049kB 538MB
+(parted) set 1 boot on
+
+(parted) mkpart primary ext4 538MB [SIZE]
+(parted) mkpart primary linux-swap [SIZE] 100%
+(parted) quit
+</code></pre>
+
+<p>Run lsblk again to check your results of the above:</p>
+<pre><code class="bash">lsblk /dev/sda
+</code></pre>
+
+<p>Now actually create these partitions via bash:</p>
+<pre><code class="bash">mkfs.vfat -F32 /dev/sda1
+mkfs.ext4 /dev/sda2
+mkswap /dev/sda3
+swapon /dev/sda3
+</code></pre>
+
+<h2 id="install-arch">Install Arch</h2>
+<p>Get excited its pacstrap time.</p>
+<p>Mount the root "/" partition:</p>
+<pre><code class="bash">mount /dev/sda2 /mnt
+</code></pre>
+
+<p>Mount the "/boot" partition:</p>
+<pre><code class="bash">mkdir -p /mnt/boot
+mount /dev/sda1 /mnt/boot
+</code></pre>
+
+<p>Install the base system:</p>
+<pre><code class="bash">pacstrap /mnt base base-devel
+</code></pre>
+
+<p>Generate the fstab:</p>
+<pre><code class="bash">genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
+</code></pre>
+
+<p>Edit the fstab file so that the / partition ends with 2, the boot ends with 1 and swap ends in 0</p>
+<p>If you would like the fstab to be optimized for ssd use add discard to the end of the ext4 partition.</p>
+<p>Below is my current fstab</p>
+<pre><code># Static information about the filesystems.
+# See fstab(5) for details.
+
+# &lt;file system&gt; &lt;dir&gt; &lt;type&gt; &lt;options&gt; &lt;dump&gt; &lt;pass&gt;
+# /dev/sda2
+UUID    /           ext4        rw,relatime,data=ordered,discard    0 2
+
+# /dev/sda1
+UUID        /boot       vfat        rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro   0 1
+
+# /dev/sda3
+UUID    none        swap        defaults,pri=-2 0 0
+</code></pre>
+
+<h2 id="base-system-configuration">Base System Configuration</h2>
+<p>Enter the new system with arch-chroot:</p>
+<p>To prioritize, we need vim before anything else, this step is very important.</p>
+<pre><code class="bash">pacman -S gvim
+</code></pre>
+
+<pre><code class="bash">arch-chroot /mnt
+</code></pre>
+
+<p>Open locale.gen:</p>
+<pre><code class="bash">vim /etc/locale.gen
+</code></pre>
+
+<p>Uncomment each locale, the en_US.UTF-8 UTF-8 locale is at the top of the file so uncommenting it here is the easiest place to do so for a standard english language system.</p>
+<p>Save and exit the file and generate the locales from bash:</p>
+<pre><code class="bash">locale-gen
+</code></pre>
+
+<p>Create the locale.conf file with your chosen locale:</p>
+<pre><code class="bash">echo LANG=en_US.UTF-8 &gt; /etc/locale.conf
+</code></pre>
+
+<p>The above works only if you selected the english UTF-8 locale.</p>
+<p>Go ahead and export it for the current session as well:</p>
+<pre><code class="bash">export LANG=en_US.UTF-8
+</code></pre>
+
+<p>Set the timezone with the below command.  If your timezone differs from mine then browse to /usr/share/zoneinfo/ and you will see all of the zones, cd into the zone and then find your subzone.</p>
+<pre><code class="bash">ln -s /usr/share/zoneinfo/Zone/SubZone /etc/localtime
+</code></pre>
+
+<p>Now set the hardware clock:</p>
+<pre><code class="bash">hwclock --systohc --utc
+</code></pre>
+
+<h2 id="system-administration">System Administration</h2>
+<p>First set an admin password:</p>
+<pre><code class="bash">passwd
+</code></pre>
+
+<p>Name your new system with the following:</p>
+<pre><code class="bash">echo good-system-name &gt; /etc/hostname
+</code></pre>
+
+<p>Edit the /etc/hosts file to also refer to your new hostname.  Add these lines if they are not there.  If they are then append your chosen name onto the end of the lines.</p>
+<pre><code>127.0.0.1 localhost.localdomain localhost good-system-name
+::1 localhost.localdomain localhost good-system-name
+</code></pre>
+
+<p>Install Network Manager</p>
+<pre><code class="bash">pacman -S networkmanager
+systemctl enable networkmanager
+</code></pre>
+
+<p>Use systemd-boot to set up your EFI system</p>
+<pre><code class="bash">pacman -S dosfstools
+bootctl --path=/boot install
+vim /boot/loader/entries/arch.conf
+</code></pre>
+
+<p>This all will have installed a bootloader and opened up a new boot loader conffile for systemd to boot the system.  Add the following lines for a nice speedy boot.</p>
+<pre><code>title Arch Linux
+linux /vmlinuz-linux
+initrd /initramfs-linux.img
+options root=/dev/sda2 rw elevator=deadline quiet splash resume=/dev/sda3 nmi_watchdog=0
+</code></pre>
+
+<p>Save and exit and now configure systemd boot to find our config file:</p>
+<pre><code class="bash">echo &quot;default arch&quot; &gt; /boot/loader/loader.conf
+</code></pre>
+
+<p>Reboot with the following commands:</p>
+<pre><code class="bash">exit
+reboot
+</code></pre>
+
+<h2 id="finishing-up">Finishing Up</h2>
+<p>Create a new user</p>
+<pre><code class="bash">groupadd users
+useradd -m -g users -G wheel -s /bin/bash goodUsername
+</code></pre>
+
+<p>Install sudo and open up the sudoers file.</p>
+<pre><code class="bash">pacman -S sudo
+vim /etc/sudoers
+</code></pre>
+
+<p>Uncomment the line:</p>
+<pre><code>%wheel ALL=(ALL) ALL
+</code></pre>
+
+<p>Save and exit.  This line allows your user to execute commands from roor with: </p>
+<pre><code class="bash">sudo &lt;command&gt;
+</code></pre>
+
+<p>Create a password for your new user with:</p>
+<pre><code class="bash">passwd goodUsername
+</code></pre>
+
+<p>Lock up root logins with:</p>
+<pre><code class="bash">passwd -l root
+</code></pre>
+
+<p>Update your system and install packer (the best aur helper):</p>
+<pre><code class="bash">sudo pacman -Syu
+sudo pacman -S fakeroot jshon expac git wget
+mkdir packer &amp;&amp; cd packer
+wget https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=packer
+mv PKGBUILD\?h\=packer PKGBUILD
+makepkg
+sudo pacman -U packer-*.pkg.tar.xz
+cd .. &amp;&amp; rm -rf packer
+</code></pre>
+
+<p>You now have a very minimal but complete Arch Linux install.  Look into some <a href="https://wiki.archlinux.org/index.php/window_manager">window managers</a> or <a href="https://wiki.archlinux.org/index.php/desktop_environment">desktop environments</a> to install onto your base system to use it as a desktop, or look into using it as a <a href="https://wiki.archlinux.org/index.php/Server">server</a>.</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
