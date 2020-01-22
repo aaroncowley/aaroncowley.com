@@ -2,7 +2,8 @@ site_name: My Docs
 nav: 
   - Home: index.md
   - About: about.md
-  - Resume: AaronCowleyResume.pdf
+  - Resume: AaronCowleyResume/AaronCowleyResume.pdf
   - Articles:
+    - "Aaron Cowley BTFM": aaronBTFM/aaronBTFM.md
     - "Arch Linux Install Guide": articles/archlinuxinstall.md
 theme: cyborg
