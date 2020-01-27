@@ -5,4 +5,5 @@ nav:
   - Articles:
     - "Aaron Cowley BTFM": aaronBTFM/aaronBTFM.md
     - "Arch Linux Install Guide": articles/archlinuxinstall.md
+    - "Get a Security Engineering Job": articles/secEng.md
 theme: cyborg
